@@ -1,12 +1,14 @@
 import React from 'react';
+import { FaGithub } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 
 const SocialLogin = () => {
     return (
         <div>
             <h3 className='font-bold mb-3 '>Login With</h3>
             <div className="space-y-3">
-                <button className='btn w-full btn-outline btn-secondary'>Login With Google</button>
-                <button className='btn w-full btn-outline btn-primary'>Login With Github</button>
+                <button className='btn w-full btn-outline btn-secondary'> <FcGoogle size={24}></FcGoogle> Login With Google</button>
+                <button className='btn w-full btn-outline btn-primary'> <FaGithub size={24}></FaGithub> Login With Github</button>
             </div>
 
         </div>

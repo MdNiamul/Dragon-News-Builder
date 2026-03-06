@@ -10,9 +10,7 @@ const Latest = () => {
 
     const fetchNews = async () => {
 
-      const res = await fetch(
-        `breaking.json`
-      );
+      const res = await fetch('/breaking.json');
 
       const data = await res.json();
 
