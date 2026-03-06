@@ -3,12 +3,12 @@ import { useParams } from 'react-router';
 
 const CatagoryNews = () => {
 
-    const catagori = useParams([]);
-    console.log(catagori);
+    const {id} = useParams([]);
+    console.log(id);
 
     return (
         <div>
-            <h2>catagory News</h2>
+            <h2>catagory News{id}</h2>
         </div>
     );
 };
