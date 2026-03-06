@@ -7,9 +7,9 @@ const Navbar = () => {
         <div className='flex justify-between items-center'>
             <div className="div"></div>
             <div className="div flex gap-5 text-accent">
-                <NavLink t0='/'>Home</NavLink>
-                <NavLink t0='/about'>About</NavLink>
-                <NavLink t0='/career'>Career</NavLink>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/about'>About</NavLink>
+                <NavLink to='/career'>Career</NavLink>
             </div>
             <div className="login-btn flex gap-2">
                 <img src={user} alt="" />

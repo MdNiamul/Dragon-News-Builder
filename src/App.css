@@ -19,6 +19,9 @@
 *{
   font-family: "Poppins", sans-serif;
 }
+a.active{
+  @apply bg-base-300;
+}
 
 /* .ticker-track {
   display: flex;
