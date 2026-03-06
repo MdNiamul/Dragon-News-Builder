@@ -20,7 +20,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-.ticker-track {
+/* .ticker-track {
   display: flex;
   width: max-content;
   animation: ticker 20s linear infinite;
@@ -62,4 +62,4 @@
   to{
     transform: translateX(-50%);
   }
-}
+} */
