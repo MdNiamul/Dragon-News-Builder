@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import NewsCart from '../NewsCart';
 
 const CatagoryNews = () => {
 
@@ -26,8 +27,17 @@ const CatagoryNews = () => {
     }, [data, id]);
 
     return (
-        <div>
-            <h2>Total {categoryNews.length} News Found</h2>
+        <div className='place-items-center'>
+            <h2 className='font-bold items-center place-center mb-5'>Total
+                <span className='text-secondary'>
+                   ( {categoryNews.length})
+                </span>News Found
+            </h2>
+            <div className='grid grid-cols-1 gap-5'>
+                {
+                    categoryNews.map((news) => <NewsCart key={news.id} news={news}></NewsCart>)
+                }
+            </div>
         </div>
     );
 };
