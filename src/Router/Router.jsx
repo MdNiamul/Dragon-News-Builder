@@ -1,50 +1,3 @@
-// import { createBrowserRouter } from "react-router";
-// import HomeLayout from "../LayOut/HomeLayOut/HomeLayout";
-// import Home from "../Pages/Home";
-// import CatagoryNews from "../Pages/CataoryNews/CatagoryNews";
-// import LoginPage from "../Pages/LoginPage";
-// import Register from "../Pages/Register";
-// import AuthLayout from "../LayOut/AuthLayout/AuthLayout";
-
-
-
-// const router = createBrowserRouter([
-//     {
-//         path: '/',
-//         element: <HomeLayout></HomeLayout>,
-//         children:[
-//             {path: "",
-//             element: <Home></Home>},
-//             {path: "/catagory/:id",
-//             element: <CatagoryNews></CatagoryNews>,
-//             loader: () => fetch('/news.json')
-//         },
-
-//         ]
-//     },
-//     {
-//         path: '/auth',
-//         element: <AuthLayout></AuthLayout>,
-//         children: [
-//             {path: "login",
-//              element: <LoginPage></LoginPage>
-//             },
-//             {path: "register",
-//              element: <Register></Register>
-//             },
-//         ]
-//     },
-//     {
-//         path: '/news',
-//         element: <h2>news Layout</h2>
-//     },
-//     {
-//         path: '/*',
-//         element: <h2>Error</h2>
-//     }
-// ])
-
-// export default router;
 import { createBrowserRouter } from "react-router";
 import HomeLayout from "../LayOut/HomeLayOut/HomeLayout";
 import Home from "../Pages/Home";
@@ -53,44 +6,47 @@ import LoginPage from "../Pages/LoginPage";
 import Register from "../Pages/Register";
 import AuthLayout from "../LayOut/AuthLayout/AuthLayout";
 
+
+
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <HomeLayout />,
-    children: [
-      {
-        index: true,
-        element: <Home />
-      },
-      {
-        path: "/category/:id",
-        element: <CatagoryNews />,
-        loader: () => fetch('/news.json')
-      }
-    ]
-  },
-  {
-    path: '/auth',
-    element: <AuthLayout />,
-    children: [
-      {
-        path: "login",
-        element: <LoginPage />
-      },
-      {
-        path: "register",
-        element: <Register />
-      }
-    ]
-  },
-  {
-    path: '/news',
-    element: <h2>News Layout</h2>
-  },
-  {
-    path: '*',
-    element: <h2>Error Page</h2>
-  }
-]);
+    {
+        path: '/',
+        element: <HomeLayout></HomeLayout>,
+        children: [
+            {
+                path: "",
+                element: <Home></Home>
+            },
+            {
+                path: "/catagory/:id",
+                element: <CatagoryNews></CatagoryNews>,
+                loader: () => fetch('/news.json')
+            },
+
+        ]
+    },
+    {
+        path: '/auth',
+        element: <AuthLayout />,
+        children: [
+            {
+                path: "login",
+                element: <LoginPage />
+            },
+            {
+                path: "register",
+                element: <Register />
+            }
+        ]
+    },
+    {
+        path: '/news',
+        element: <h2>news Layout</h2>
+    },
+    {
+        path: '/*',
+        element: <h2>Error</h2>
+    }
+])
 
 export default router;
