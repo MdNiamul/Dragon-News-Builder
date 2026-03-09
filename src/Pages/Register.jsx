@@ -1,13 +1,14 @@
-import React, { use } from 'react';
+import {  useContext } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../AuthProvide/AuthProvider';
 
+
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
 
     const handleregisterChange = (e) => {
         e.preventDefault();
-
-        const {createuser} = use(AuthContext);
+        
 
         console.log(e.target);
         const form = e.target;
@@ -17,21 +18,19 @@ const Register = () => {
         const photo = form.photo.value;
         const password = form.password.value;
 
-        console.log({name, email, photo, password});
+        console.log({ name, email, photo, password });
 
-        createuser(email, password)
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessege = error.message;
-            alert(errorMessege);
-        });
-        
+        createUser(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+
     };
-    
+
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="card bg-base-100 w-full max-w-sm shadow-2xl py-5">
