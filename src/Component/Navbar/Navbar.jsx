@@ -6,11 +6,19 @@ import { AuthContext } from '../../AuthProvide/AuthProvider';
 
 const Navbar = () => {
 
- const HandleLogout = () => {
-    console.log("clicked");
- }
-    const { user } = use(AuthContext);
+
+    const { user, logOut } = use(AuthContext);
     console.log(user);
+
+    const HandleLogout = () => {
+        console.log("clicked");
+        logOut().then(() => {
+            alert("logout succesfuly");
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
     return (
         <div className='flex justify-between items-center'>
             <div>
