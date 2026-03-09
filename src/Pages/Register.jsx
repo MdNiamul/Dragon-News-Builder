@@ -4,11 +4,11 @@ import { AuthContext } from '../AuthProvide/AuthProvider';
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, setUser } = useContext(AuthContext);
 
     const handleregisterChange = (e) => {
         e.preventDefault();
-        
+
 
         console.log(e.target);
         const form = e.target;
@@ -23,7 +23,8 @@ const Register = () => {
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
+                setUser(user);
             })
             .catch((error) => {
                 alert(error.message);
