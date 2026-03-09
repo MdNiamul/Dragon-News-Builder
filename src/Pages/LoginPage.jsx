@@ -1,19 +1,45 @@
-import React from 'react';
+
 import { Link } from 'react-router';
+import { AuthContext } from '../AuthProvide/AuthProvider';
+import { useContext } from 'react';
 
 const LoginPage = () => {
+
+    const {signIn} = useContext(AuthContext);
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password);
+
+        signIn(email, password)
+        .then((result)=>{
+            const user = result.user; 
+
+            console.log(user);
+        })
+        .catch((error) => {
+                alert(error.message);
+            });
+
+    }
     return (
         <div className="flex justify-center items-center min-h-screen">
             <div className="card bg-base-100 w-full max-w-sm shadow-2xl py-5">
-                 <h2 className='font-semibold text-center'>LogIn Your account</h2>
-                <div className="card-body">
-                   
+                <h2 className='font-semibold text-center'>LogIn Your account</h2>
+                <form onSubmit={handleLogin} className="card-body">
+
                     <fieldset className="fieldset">
                         <label className="label">Email</label>
-                        <input type="email" className="input" placeholder="Email" />
+                        <input required name='email' type="email" className="input" placeholder="Email" />
 
                         <label className="label">Password</label>
-                        <input type="password" className="input" placeholder="Password" />
+                        <input required name='password' type="password" className="input" placeholder="Password" />
 
                         <div>
                             <a className="link link-hover">Forgot password?</a>
@@ -23,7 +49,7 @@ const LoginPage = () => {
 
                         <h2 className='font-semibold text-center p-6'>Dont’t Have An Account ? <Link to='/auth/register' className='text-red-700'>Register</Link></h2>
                     </fieldset>
-                </div>
+                </form>
             </div>
         </div>
     );
