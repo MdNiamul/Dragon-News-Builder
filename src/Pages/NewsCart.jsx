@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+
 import { FaStar, FaEye, FaRegBookmark, FaShareAlt } from "react-icons/fa";
+import { Link } from "react-router";
 
 const NewsCart = ({ news }) => {
 
-    const [showFull, setShowFull] = useState(false);
-
-    const { title, image_url, author, rating, total_view, details } = news;
+    const {id, title, image_url, author, rating, total_view, details } = news;
 
     const formattedDate = new Date(author?.published_date).toDateString();
 
@@ -47,26 +46,19 @@ const NewsCart = ({ news }) => {
             </div>
 
             {/* Details contidion here  */}
-            <div className="p-3 m-2">
+            <div className="px-4 text-accent">
+                {
+                    details.length > 200 ? (
+                        <>{details.slice(0, 200)}...
+                            <Link to={`/news-details/${id}`} className="text-primary font-semibold cursor-pointer hover:underline"> 
+                            read More
+                            </Link>
+                        </>
+                    ):(
+                        details
+                    )
+                }
 
-                <p>
-                    {
-                        showFull
-                            ? details
-                            : details.slice(0, 200)
-                    }
-
-                    {
-                        details.length > 200 && (
-                            <span
-                                onClick={() => setShowFull(!showFull)}
-                                className="text-blue-500 cursor-pointer ml-2"
-                            >
-                                {showFull ? " See Less" : "...See More"}
-                            </span>
-                        )
-                    }
-                </p>
 
             </div>
 
