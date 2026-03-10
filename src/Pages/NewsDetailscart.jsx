@@ -1,15 +1,12 @@
 import React from 'react';
-import { useLoaderData, useParams } from 'react-router';
 
-const NewsDetailscart = () => {
-    const data =  useLoaderData();
-    const {id} = useParams();
+const NewsDetailscart = ({news}) => {
+   console.log(news);
 
-    console.log(data, id);
-    
     return (
         <div>
-            <h1>akffhgkdj</h1>
+            <img className='mb-4' src={news.image_url} alt="" />
+            <h1 className='text-2xl mb-4'>{news.title}</h1>
         </div>
     );
 };
