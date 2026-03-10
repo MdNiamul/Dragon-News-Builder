@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../AuthProvide/AuthProvider';
 import { Navigate } from 'react-router';
+import Loading from '../../Component/Loading/Loading';
 
 const PrivateRoutte = ({children}) => {
 
@@ -9,7 +10,7 @@ const PrivateRoutte = ({children}) => {
     // console.log(user);
 
     if(loading){
-return <span className="loading loading-infinity loading-xl"></span>
+return <Loading></Loading>
     }
 
     if(user && user?.email){
