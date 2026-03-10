@@ -4,9 +4,13 @@ import { Navigate } from 'react-router';
 
 const PrivateRoutte = ({children}) => {
 
-    const {user} = use(AuthContext);
+    const {user, loading} = use(AuthContext);
    
-    console.log(user);
+    // console.log(user);
+
+    if(loading){
+return <span className="loading loading-infinity loading-xl"></span>
+    }
 
     if(user && user?.email){
   return children;
