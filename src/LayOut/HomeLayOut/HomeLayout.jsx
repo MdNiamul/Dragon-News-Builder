@@ -1,3 +1,42 @@
+// import React from 'react';
+// import { Outlet, useNavigation } from 'react-router';
+// import Header from '../../Component/Header/Header';
+// import Latest from '../../Component/Header/LatestNews/latest';
+// import Navbar from '../../Component/Navbar/Navbar';
+// import LeftAside from '../../Component/LeftAside/LeftAside';
+// import RightAside from '../../Component/RightAside/RightAside';
+// import Loading from '../../Component/Loading/Loading';
+
+
+
+// const HomeLayout = () => {
+//     const {state} = useNavigation();
+//     return (
+//         <div>
+//             <Header></Header>
+//             <section className='w-11/12 mx-auto my-3'>
+//                 <Latest></Latest>
+//             </section>
+//             <nav className='w-11/12 mx-auto my-3'>
+//                 <Navbar></Navbar>
+//             </nav>
+//             <main className='w-11/12 mx-auto my-3 grid grid-cols-12 gap-6'>
+//                 <aside className='col-span-2 sticky top-0 h-fit'>
+//                     <LeftAside></LeftAside>
+//                 </aside>
+//                 <section className='col-span-8'>
+//                     {state=="loading" ? <Loading></Loading> : <Outlet></Outlet>}
+//                 </section>
+//                 <aside className='col-span-2 sticky top-0 h-fit'>
+//                     <RightAside></RightAside>
+//                 </aside>
+//             </main>
+//         </div>
+//     );
+// };
+
+// export default HomeLayout;
+
 import React from 'react';
 import { Outlet, useNavigation } from 'react-router';
 import Header from '../../Component/Header/Header';
@@ -7,29 +46,38 @@ import LeftAside from '../../Component/LeftAside/LeftAside';
 import RightAside from '../../Component/RightAside/RightAside';
 import Loading from '../../Component/Loading/Loading';
 
-
-
 const HomeLayout = () => {
-    const {state} = useNavigation();
+    const { state } = useNavigation();
+
     return (
         <div>
-            <Header></Header>
+            <Header />
+
             <section className='w-11/12 mx-auto my-3'>
-                <Latest></Latest>
+                <Latest />
             </section>
+
             <nav className='w-11/12 mx-auto my-3'>
-                <Navbar></Navbar>
+                <Navbar />
             </nav>
-            <main className='w-11/12 mx-auto my-3 grid grid-cols-12 gap-6'>
-                <aside className='col-span-3 sticky top-0 h-fit'>
-                    <LeftAside></LeftAside>
+
+            <main className='w-11/12 mx-auto my-3 grid grid-cols-1 md:grid-cols-12 gap-6'>
+                
+                {/* Left Aside */}
+                <aside className='md:col-span-3 lg:col-span-2 sticky top-0 h-fit'>
+                    <LeftAside />
                 </aside>
-                <section className='col-span-6'>
-                    {state=="loading" ? <Loading></Loading> : <Outlet></Outlet>}
+
+                {/* Main Content */}
+                <section className='md:col-span-6 lg:col-span-8'>
+                    {state === "loading" ? <Loading /> : <Outlet />}
                 </section>
-                <aside className='col-span-3 sticky top-0 h-fit'>
-                    <RightAside></RightAside>
+
+                {/* Right Aside */}
+                <aside className='md:col-span-3 lg:col-span-2 sticky top-0 h-fit'>
+                    <RightAside />
                 </aside>
+
             </main>
         </div>
     );

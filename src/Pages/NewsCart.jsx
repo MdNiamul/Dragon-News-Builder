@@ -58,8 +58,7 @@ const NewsCart = ({ news }) => {
                         details
                     )
                 }
-
-
+                
             </div>
 
             {/* Footer */}
