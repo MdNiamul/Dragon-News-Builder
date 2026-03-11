@@ -9,7 +9,7 @@ const PrivateRoutte = ({children}) => {
 
     const location = useLocation();
 
-    console.log(location);
+    // console.log(location);
 
    
     // console.log(user);

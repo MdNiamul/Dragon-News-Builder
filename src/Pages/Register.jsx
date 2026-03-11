@@ -11,12 +11,12 @@ const Register = () => {
         e.preventDefault();
 
 
-        console.log(e.target);
+        // console.log(e.target);
         const form = e.target;
 
         const name = form.name.value;
         const email = form.email.value;
-        const photo = form.photo.value;
+        // const photo = form.photo.value;
         const password = form.password.value;
 
         // Name first letter capital check
@@ -27,7 +27,7 @@ const Register = () => {
             setNameError("");
         }
 
-        console.log({ name, email, photo, password });
+        // console.log({ name, email, photo, password });
 
         createUser(email, password)
             .then((result) => {
