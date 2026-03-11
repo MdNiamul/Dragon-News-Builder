@@ -1,10 +1,11 @@
-import {  useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../AuthProvide/AuthProvider';
 
 
 const Register = () => {
     const { createUser, setUser } = useContext(AuthContext);
+    const [nameError, setNameError] = useState("");
 
     const handleregisterChange = (e) => {
         e.preventDefault();
@@ -17,6 +18,14 @@ const Register = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
+
+        // Name first letter capital check
+        if (!/^[A-Z]/.test(name)) {
+            setNameError("Name first letter must be capital");
+            return;
+        } else {
+            setNameError("");
+        }
 
         console.log({ name, email, photo, password });
 
@@ -43,6 +52,7 @@ const Register = () => {
                         {/* name */}
                         <label className="label">Name</label>
                         <input required type="text" name='name' className="input" placeholder="Name" />
+                        <p className='text-red-500 text-sm'>{nameError}</p>
 
                         {/* Photo URl */}
                         <label className="label">Photo URL</label>

@@ -1,13 +1,14 @@
 
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvide/AuthProvider';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 const LoginPage = () => {
 
     const {signIn} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const [error, setError] = useState("");
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -27,7 +28,7 @@ const LoginPage = () => {
 
         })
         .catch((error) => {
-                alert(error.message);
+                setError(error.message);
             });
 
     }
@@ -47,8 +48,10 @@ const LoginPage = () => {
                         <div>
                             <a className="link link-hover">Forgot password?</a>
                         </div>
+                        <p className="text-red-500 text-center font-semibold">{error}</p>
 
                         <button className="btn btn-neutral mt-4">Login</button>
+                        
 
                         <h2 className='font-semibold text-center p-6'>Dont’t Have An Account ? <Link to='/auth/register' className='text-red-700'>Register</Link></h2>
                     </fieldset>
