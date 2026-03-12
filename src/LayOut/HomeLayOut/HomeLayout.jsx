@@ -64,17 +64,17 @@ const HomeLayout = () => {
             <main className='w-11/12 mx-auto my-3 grid grid-cols-1 md:grid-cols-12 gap-6'>
                 
                 {/* Left Aside */}
-                <aside className='md:col-span-3 lg:col-span-2 sticky top-0 h-fit'>
+                <aside className='md:col-span-2 lg:col-span-2 sticky top-0 h-fit'>
                     <LeftAside />
                 </aside>
 
                 {/* Main Content */}
-                <section className='md:col-span-6 lg:col-span-8'>
+                <section className='md:col-span-7 lg:col-span-8'>
                     {state === "loading" ? <Loading /> : <Outlet />}
                 </section>
 
                 {/* Right Aside */}
-                <aside className='md:col-span-3 lg:col-span-2 sticky top-0 h-fit'>
+                <aside className='md:col-span-2 lg:col-span-2 sticky top-0 h-fit'>
                     <RightAside />
                 </aside>
 

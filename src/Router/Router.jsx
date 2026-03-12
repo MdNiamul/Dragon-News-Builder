@@ -8,6 +8,7 @@ import AuthLayout from "../LayOut/AuthLayout/AuthLayout";
 import NewsDetails from "../Pages/News-Details";
 import PrivateRoutte from "./Privateroute/PrivateRoutte";
 import Loading from "../Component/Loading/Loading";
+import Forgotten from "../Pages/Forgotten";
 
 
 
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                loader:()=> fetch('/HomeNews.json'),
+                loader: () => fetch('/HomeNews.json'),
                 element: <Home></Home>
             },
             {
@@ -51,9 +52,14 @@ const router = createBrowserRouter([
         hydrateFallbackElement: <Loading></Loading>
     },
     {
+        path: '/forgotten',
+        element: <Forgotten></Forgotten>
+    },
+    {
         path: '/*',
         element: <h2>Error</h2>
     }
+
 ])
 
 export default router;

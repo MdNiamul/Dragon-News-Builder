@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 
 const LoginPage = () => {
 
-    const {signIn} = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const [error, setError] = useState("");
@@ -21,13 +21,13 @@ const LoginPage = () => {
         // console.log(email, password);
 
         signIn(email, password)
-        .then((result)=>{
-            const user = result.user;
-            console.log(user);
-            navigate(`${location.state?location.state : "/"}`);
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                navigate(`${location.state ? location.state : "/"}`);
 
-        })
-        .catch((error) => {
+            })
+            .catch((error) => {
                 setError(error.message);
             });
 
@@ -46,12 +46,14 @@ const LoginPage = () => {
                         <input required name='password' type="password" className="input" placeholder="Password" />
 
                         <div>
-                            <a className="link link-hover">Forgot password?</a>
+                            <Link to="/forgotten" className="link link-hover">
+                                Forgot password?
+                            </Link>
                         </div>
                         <p className="text-red-500 text-center font-semibold">{error}</p>
 
                         <button className="btn btn-neutral mt-4">Login</button>
-                        
+
 
                         <h2 className='font-semibold text-center p-6'>Dont’t Have An Account ? <Link to='/auth/register' className='text-red-700'>Register</Link></h2>
                     </fieldset>
