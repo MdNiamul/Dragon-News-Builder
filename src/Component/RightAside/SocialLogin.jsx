@@ -2,11 +2,10 @@ import React, { useContext } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../AuthProvide/AuthProvider';
-// import { AuthContext } from '../AuthProvide/AuthProvider';
 
 const SocialLogin = () => {
 
-    const { googleSignIn } = useContext(AuthContext);
+    const { googleSignIn, user, loading } = useContext(AuthContext);
 
     const handleGoogleSignIn = () => {
         googleSignIn()
@@ -16,6 +15,20 @@ const SocialLogin = () => {
         .catch(error => {
             console.log(error.message);
         })
+    }
+
+    // firebase user check korar somoy loading
+    if(loading){
+        return (
+            <div className="flex justify-center items-center py-6">
+                <span className="loading loading-infinity loading-xl"></span>
+            </div>
+        )
+    }
+
+    // user thakle social login dekhabe na
+    if(user){
+        return null;
     }
 
     return (
@@ -34,7 +47,6 @@ const SocialLogin = () => {
                 </button>
 
             </div>
-            
         </div>
     );
 };
