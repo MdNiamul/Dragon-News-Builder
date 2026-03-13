@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../Firebase/Firebase.config';
 
 
@@ -10,6 +10,7 @@ const auth = getAuth(app);
 
 // eslint-disable-next-line
 export const AuthContext = createContext();
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -28,6 +29,10 @@ const AuthProvider = ({ children }) => {
     const signIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password);
        
+    }
+
+    const googleSignIn  = () => {
+        return signInWithPopup (auth, googleProvider); 
     }
 
     useEffect(() => {
@@ -58,6 +63,7 @@ const AuthProvider = ({ children }) => {
         signIn,
         loading,
         setLoading,
+        googleSignIn
     };
 
     return (
