@@ -5,7 +5,7 @@ import { AuthContext } from '../../AuthProvide/AuthProvider';
 
 const SocialLogin = () => {
 
-    const { googleSignIn, user, loading } = useContext(AuthContext);
+    const { googleSignIn, githubSignIn, user, loading } = useContext(AuthContext);
 
     const handleGoogleSignIn = () => {
         googleSignIn()
@@ -17,16 +17,24 @@ const SocialLogin = () => {
         })
     }
 
-    // firebase user check korar somoy loading
+    const handleGithubSignIn = () => {
+        githubSignIn()
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
+    }
+
     if(loading){
         return (
-            <div className="flex justify-center items-center py-6">
+            <div className="flex justify-center py-6">
                 <span className="loading loading-infinity loading-xl"></span>
             </div>
         )
     }
 
-    // user thakle social login dekhabe na
     if(user){
         return null;
     }
@@ -42,7 +50,9 @@ const SocialLogin = () => {
                     <FcGoogle size={24}/> Login With Google
                 </button>
 
-                <button className='btn w-full btn-outline btn-primary'>
+                <button 
+                onClick={handleGithubSignIn}
+                className='btn w-full btn-outline btn-primary'>
                     <FaGithub size={24}/> Login With Github
                 </button>
 
