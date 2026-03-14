@@ -5,7 +5,7 @@
 ## 🌐 Live Preview
 
 Local Development Link:
-[http://localhost:5173/catagory/5](https://dragon-news-50a6a.web.app/)
+(https://dragon-news-50a6a.web.app/)
 
 ## 🚀 Features
 
