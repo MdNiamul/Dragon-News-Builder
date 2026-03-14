@@ -5,7 +5,7 @@
 ## 🌐 Live Preview
 
 Local Development Link:
-http://localhost:5173/catagory/5
+[http://localhost:5173/catagory/5](https://dragon-news-50a6a.web.app/)
 
 ## 🚀 Features
 
@@ -42,7 +42,7 @@ src
 Clone the repository
 
 ```
-git clone https://github.com/your-username/dragon-news.git
+git clone [https://github.com/your-username/dragon-news.git](https://github.com/MdNiamul/Dragon-News-Builder.git)
 ```
 
 Go to the project folder
