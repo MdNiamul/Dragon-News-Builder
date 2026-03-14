@@ -42,7 +42,7 @@ src
 Clone the repository
 
 ```
-git clone [https://github.com/your-username/dragon-news.git](https://github.com/MdNiamul/Dragon-News-Builder.git)
+git clone https://github.com/MdNiamul/Dragon-News-Builder.git
 ```
 
 Go to the project folder
