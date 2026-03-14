@@ -10,6 +10,7 @@ import PrivateRoutte from "./Privateroute/PrivateRoutte";
 import Loading from "../Component/Loading/Loading";
 import Forgotten from "../Pages/Forgotten";
 import About from "../Pages/About";
+import Career from "../Pages/Career";
 
 
 
@@ -64,8 +65,12 @@ const router = createBrowserRouter([
     {
         path: 'about',
         element: <About></About>
+    },
+    {
+        path: 'career',
+        element: <Career></Career>
     }
-
+    
 ])
 
 export default router;
