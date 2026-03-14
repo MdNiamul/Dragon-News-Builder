@@ -9,6 +9,8 @@ import NewsDetails from "../Pages/News-Details";
 import PrivateRoutte from "./Privateroute/PrivateRoutte";
 import Loading from "../Component/Loading/Loading";
 import Forgotten from "../Pages/Forgotten";
+import About from "../Pages/About";
+
 
 
 
@@ -58,6 +60,10 @@ const router = createBrowserRouter([
     {
         path: '/*',
         element: <h2>Error</h2>
+    },
+    {
+        path: 'about',
+        element: <About></About>
     }
 
 ])
